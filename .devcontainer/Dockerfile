@@ -7,6 +7,8 @@ RUN apt-get update \
 
 WORKDIR /usr/src/app
 
+RUN git config --global pull.rebase false
+RUN git config --global pull.ff only
 
 COPY requirements.txt ./
 RUN pip install -r requirements.txt
