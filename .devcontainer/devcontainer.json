@@ -1,59 +1,63 @@
 {
-    "build": {
-      "dockerfile": "Dockerfile"
-    },
-    "hostRequirements": {
-      "cpus": 4
-    },
-    "waitFor": "onCreateCommand",
-    "postCreateCommand": "",
-    "postAttachCommand": {
-      "server": ""
-    },
-    "customizations": {
-      "vscode": {
-        "settings": {
-          "files.eol": "\n",
-          "git.autofetch": true,
-          "editor.formatOnSave": true,
-          "editor.formatOnPaste": true,
-          "editor.codeActionsOnSave": {
-            "source.organizeImports": "explicit"
-          },
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "hostRequirements": {
+    "cpus": 4
+  },
+  "waitFor": "onCreateCommand",
+  "postCreateCommand": "",
+  "postAttachCommand": {
+    "server": ""
+  },
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "files.eol": "\n",
+        "git.autofetch": true,
+        "editor.formatOnSave": true,
+        "editor.formatOnPaste": true,
+        "editor.codeActionsOnSave": {
+          "source.organizeImports": "explicit"
         },
-        "extensions": [
-          "formulahendry.auto-close-tag",
-          "formulahendry.auto-rename-tag",
-          "aaron-bond.better-comments",
-          "alefragnani.bookmarks",
-          "pkief.material-icon-theme",
-          "naumovs.color-highlight",
-          "ms-azuretools.vscode-docker",
-          "editorconfig.editorconfig",
-          "github.copilot",
-          "eamodio.gitlens",
-          "wix.vscode-import-cost",
-          "ritwickdey.liveserver",
-          "davidanson.vscode-markdownlint",
-          "albert.tabout",
-          "rangav.vscode-thunder-client",
-          "BeardedBear.beardedtheme",
-          "ms-azuretools.vscode-docker"
-        ]
-      }
-    },
-    "portsAttributes": {
-      "3000": {
-        "label": "Front",
-        "onAutoForward": "notify"
       },
-      "8000":{
-        "label": "Django",
-        "onAutoForward": "notify"
-      }
+      "extensions": [
+        "formulahendry.auto-close-tag",
+        "formulahendry.auto-rename-tag",
+        "aaron-bond.better-comments",
+        "alefragnani.bookmarks",
+        "pkief.material-icon-theme",
+        "naumovs.color-highlight",
+        "ms-azuretools.vscode-docker",
+        "editorconfig.editorconfig",
+        "github.copilot",
+        "eamodio.gitlens",
+        "wix.vscode-import-cost",
+        "ritwickdey.liveserver",
+        "davidanson.vscode-markdownlint",
+        "albert.tabout",
+        "rangav.vscode-thunder-client",
+        "BeardedBear.beardedtheme",
+        "ms-azuretools.vscode-docker",
+        "ms-python.python",
+        "bigonesystems.django",
+        "bibhasdn.django-html",
+        "mathematic.vscode-pdf"
+      ]
+    }
+  },
+  "portsAttributes": {
+    "3000": {
+      "label": "Front",
+      "onAutoForward": "notify"
     },
-    "forwardPorts": [
-      3000,
-      8000
-    ]
-  }
+    "8000": {
+      "label": "Django",
+      "onAutoForward": "notify"
+    }
+  },
+  "forwardPorts": [
+    3000,
+    8000
+  ]
+}
