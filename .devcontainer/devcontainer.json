@@ -5,10 +5,8 @@
   "hostRequirements": {
     "cpus": 4
   },
-  "waitFor": "onCreateCommand",
-  "postCreateCommand": "",
   "postAttachCommand": {
-    "server": ""
+    "server": "python manage.py runserver localhost:8000"
   },
   "customizations": {
     "vscode": {
@@ -20,6 +18,15 @@
         "editor.codeActionsOnSave": {
           "source.organizeImports": "explicit"
         },
+        "python.formatting.provider": "autopep8",
+        
+        "[python]": {
+          "editor.defaultFormatter": "ms-python.autopep8",
+          "editor.formatOnSave": true
+        },
+        "autopep8.args": [
+          "--global-config pycodestyle"
+        ]
       },
       "extensions": [
         "formulahendry.auto-close-tag",
@@ -33,31 +40,28 @@
         "github.copilot",
         "eamodio.gitlens",
         "wix.vscode-import-cost",
-        "ritwickdey.liveserver",
         "davidanson.vscode-markdownlint",
-        "albert.tabout",
         "rangav.vscode-thunder-client",
         "BeardedBear.beardedtheme",
         "ms-azuretools.vscode-docker",
         "ms-python.python",
         "bigonesystems.django",
         "bibhasdn.django-html",
-        "mathematic.vscode-pdf"
+        "mathematic.vscode-pdf",
+        "MS-vsliveshare.vsliveshare",
+        "sidthesloth.html5-boilerplate",
+        "ecmel.vscode-html-css",
+        "ms-python.autopep8"
       ]
     }
   },
   "portsAttributes": {
-    "3000": {
-      "label": "Front",
-      "onAutoForward": "notify"
-    },
     "8000": {
       "label": "Django",
       "onAutoForward": "notify"
     }
   },
   "forwardPorts": [
-    3000,
     8000
   ]
 }

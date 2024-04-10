@@ -1,1 +1,2 @@
 Django>=5.0.4
+autopep8>=2.1.0
