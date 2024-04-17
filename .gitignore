@@ -1,0 +1,13 @@
+# Django
+*.pyc
+*.pyo
+__pycache__/
+*.sqlite3
+db.sqlite3
+media/
+
+# IDE
+.vscode/
+
+# Logs
+*.log
