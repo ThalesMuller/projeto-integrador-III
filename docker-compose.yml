@@ -1,25 +1,55 @@
-version: '3.7'
+version: '3'
+name: margm
 
 services:
-  django-api:
-    build:
-      context: .
-      dockerfile: backend/Dockerfile
-    volumes:
-      - .:/workspace:cached
-    command: python manage.py runserver localhost:8000
-    links:
-      - mysql-db
-
   mysql-db:
-    image: mysql:lastest
+    container_name: mysql-db
     environment:
-      MYSQL_ROOT_PASSWORD: root1234
-      MYSQL_DATABASE: MARGM_DB
-      MYSQL_USER: developer
-      MYSQL_PASSWORD: dev1234
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    image: mysql:latest
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "mysql",
+          "-h",
+          "localhost",
+          "-u",
+          "root",
+          "-p${DB_ROOT_PASSWORD}",
+          "-e",
+          "SELECT 1"
+        ]
+      timeout: 20s
+      retries: 10
+    cap_add:
+      - SYS_NICE
+    command: --default-authentication-plugin=caching_sha2_password
     ports:
       - "3306:3306"
     volumes:
       - .:/workspace:cached
-    command: sleep infinity
+      - data:/var/lib/mysql
+
+  django-api:
+    container_name: django-api
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    restart: always
+    volumes:
+      - .:/workspace:cached
+    command: sh -c "python3 backend/manage.py migrate --noinput && python3 backend/manage.py collectstatic --noinput && python backend/manage.py runserver 0.0.0.0:8000"
+    env_file:
+      - .env
+    depends_on:
+      mysql-db:
+        condition: "service_healthy"
+    ports:
+      - "8000:8000"
+
+volumes:
+  data:
