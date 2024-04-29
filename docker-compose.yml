@@ -6,12 +6,10 @@ services:
       context: .
       dockerfile: backend/Dockerfile
     volumes:
-      # Mount the root folder that contains .git
       - .:/workspace:cached
     command: python manage.py runserver localhost:8000
     links:
       - mysql-db
-    # ...
 
   mysql-db:
     image: mysql:lastest
@@ -23,7 +21,5 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      # Mount the root folder that contains .git
       - .:/workspace:cached
     command: sleep infinity
-    # ...
