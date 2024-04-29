@@ -78,8 +78,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'MARGM_DB',
-        'USER': 'seu_usuario',
-        'PASSWORD': 'sua_senha',
+        'USER': 'root',
+        'PASSWORD': 'root1234',
         'HOST': 'localhost',
         'PORT': '3306'
     }

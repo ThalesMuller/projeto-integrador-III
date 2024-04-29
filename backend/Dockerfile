@@ -2,7 +2,7 @@ FROM python:3.10-slim
 
 RUN apt-get update \
 	&& apt-get install -y --no-install-recommends \
-	&& apt-get install -y git \
+	&& apt-get install -y git build-essential pkg-config python3-dev default-libmysqlclient-dev libxslt-dev \
 	&& rm -rf /var/lib/apt/lists/*
 
 WORKDIR /workspaces/projeto-integrador-III/

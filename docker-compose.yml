@@ -1,0 +1,27 @@
+version: '3.7'
+
+services:
+  django-api:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    volumes:
+      # Mount the root folder that contains .git
+      - .:/workspace:cached
+    command: sleep infinity
+    links:
+      - node-app
+    # ...
+
+  mysql-db:
+    image: mysql:lastest
+    environment:
+      MYSQL_ROOT_PASSWORD: root1234
+      MYSQL_DATABASE: MARGM_DB
+      MYSQL_USER: developer
+      MYSQL_PASSWORD: dev1234
+    volumes:
+      # Mount the root folder that contains .git
+      - .:/workspace:cached
+    command: sleep infinity
+    # ...
