@@ -1,5 +1,6 @@
 from django.http import HttpResponse
-from .forms import LivroForm
+from django.shortcuts import redirect, render
+from .forms import *
 
 
 def index(request):
