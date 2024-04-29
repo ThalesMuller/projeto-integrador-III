@@ -8,9 +8,9 @@ services:
     volumes:
       # Mount the root folder that contains .git
       - .:/workspace:cached
-    command: sleep infinity
+    command: python manage.py runserver localhost:8000
     links:
-      - node-app
+      - mysql-db
     # ...
 
   mysql-db:
@@ -20,6 +20,8 @@ services:
       MYSQL_DATABASE: MARGM_DB
       MYSQL_USER: developer
       MYSQL_PASSWORD: dev1234
+    ports:
+      - "3306:3306"
     volumes:
       # Mount the root folder that contains .git
       - .:/workspace:cached
