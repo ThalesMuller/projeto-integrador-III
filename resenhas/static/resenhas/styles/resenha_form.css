@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Ribeye&display=swap');
+
+
+/* Variáveis */
+:root {
+    --azul1: #57B2F3;
+    --azul2: #3196da;
+    --azul3: #004678d8;
+    --azul4: #57b2f36e;
+    --sombra1: 5px 5px 3px rgba(0, 0, 0, 0.041);
+}
+
+
+
+/* Pré-definições globais */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    height: 100%;
+    width: 100%;
+    background-color: #FCFCFC;
+    overflow: auto;
+    display: flex;
+    flex-direction: row;
+}
+
+
+
+
+/* Menu Lateral */
+#menu-lateral {
+    background-color: var(--azul3);
+    width: 300px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+}
+
+h1 {
+    font-family: "Ribeye", serif;
+    font-size: 60px;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+
+#menu-lateral a {
+    background-color: var(--azul4);
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    margin: 5px;
+    margin-bottom: -1px;
+    padding: 20px;
+    border-radius: 2px;
+    width: 250px;
+    font-size: 20px;
+}
+
+#menu-lateral #selecionado {
+    background-color: var(--azul1);
+}
+
+
+
+/* Seção Nova Resenha */
+#nova-resenha {
+    margin-left: 20px;
+}
+
+h2 {
+    font-size: 30px;
+    color: var(--azul1);
+    margin-bottom: 5px;
+    margin-top: 50px;
+}
+
+h3 {
+    margin-bottom: 80px;
+    font-size: 15px;
+    font-weight: normal;
+}
+
+
+form p {
+    opacity: 90%;
+    margin-bottom: 5px;
+}
+
+textarea {
+    padding: 10px;
+    border-radius: 10px;
+    border: 0.5px solid rgba(0, 0, 0, 0.281);
+    background-color: #F4F4F4;
+    resize: none;
+}
+
+textarea[name="ISBN"] {
+    width: 20%;
+    margin-bottom: 35px;
+}
+
+textarea[name="resenha"] {
+    width: 70vw;
+}
+
+form button {
+    width: 150px;
+    padding: 12px;
+    margin-top: 20px;
+    background-color: var(--azul1);
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    box-shadow: var(--sombra1);
+    margin-left: 32vw;
+}
+
+form button:hover {
+    background-color: var(--azul2);
+}

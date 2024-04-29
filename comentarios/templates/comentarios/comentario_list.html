@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Margm :: Comentar</title>
+    <link rel="stylesheet" href="/static/comentarios/styles/comentario_form.css">
+</head>
+<body>
+<h3>Comentario List</h3>
+{% for Comentario in Comentarios %}
+    <p>{{ forloop.counter }}. {{ Comentario.name }} - {{ Comentario.get_status_display }}
+        (<a href="{% url 'Comentario_update' Comentario.id %}">Update</a> |
+        <a href="{% url 'Comentario_delete' Comentario.id %}">Delete</a>)
+    </p>
+{% endfor %}
+
+<p> <a href="{% url 'Comentario_create' %}"> + Add A New Comentario</a></p>
+</body>
+</html>

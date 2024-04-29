@@ -11,6 +11,6 @@ class Livro(models.Model):
     editora = models.CharField(max_length=100)
     ano_publicacao = models.IntegerField()
     numero_paginas = models.IntegerField()
-    rating = models.FloatField()
-    created_at = models.DateField()
+    rating = models.FloatField(null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
     created_by = models.IntegerField()

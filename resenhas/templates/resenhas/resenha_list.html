@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Resenha List</title>
+</head>
+<body>
+<h3>Resenha List</h3>
+{% for Resenha in Resenhas %}
+    <p>{{ forloop.counter }}. {{ Resenha.name }} - {{ Resenha.get_status_display }}
+        (<a href="{% url 'Resenha_update' Resenha.id %}">Update</a> |
+        <a href="{% url 'Resenha_delete' Resenha.id %}">Delete</a>)
+    </p>
+{% endfor %}
+
+<p> <a href="{% url 'Resenha_create' %}"> + Add A New Resenha</a></p>
+</body>
+</html>

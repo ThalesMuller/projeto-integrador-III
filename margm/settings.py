@@ -25,9 +25,9 @@ SECRET_KEY = 'django-insecure-ads)2wma^%*i21sv$g#6407j6fx(ga=+*mo@0i_mt@tv5&f_=7
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
-CSRF_TRUSTED_ORIGINS = ['https://supreme-invention-9q4q6q4v779fpv4q-8000.app.github.dev']
-
+ALLOWED_HOSTS = []
+CSRF_ALLOWED_ORIGINS = ["https://localhost"]
+CORS_ORIGINS_WHITELIST = ["https://localhost"]
 # Application definition
 
 INSTALLED_APPS = [
@@ -38,7 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'polls',
-    'livros'
+    'livros',
+    'usuarios',
+    'resenhas',
+    'comentarios'
 ]
 
 MIDDLEWARE = [

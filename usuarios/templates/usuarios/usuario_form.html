@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Margm :: Cadastrar Livro</title>
-    <link rel="stylesheet" href="/static/livros/styles/livro_form.css">
+    <title>Margm :: Cadastrar Usuário</title>
+    <link rel="stylesheet" href="/static/usuarios/styles/usuario_form.css">
 </head>
 <body>
     <!-- Menu Lateral -->
@@ -15,22 +15,21 @@
         <a target="_self" hreflang="pt-br">Início</a>
         <a target="_self" hreflang="pt-br">Minhas resenhas</a>
         <a target="_self" hreflang="pt-br">Nova resenha</a>
-        <a id="selecionado" href="/livros/create/" target="_self" hreflang="pt-br">Cadastrar livro</a>
-        <a href="/usuarios/create/" target="_self" hreflang="pt-br">Cadastrar usuário</a>
+        <a href="/livros/create/" target="_self" hreflang="pt-br">Cadastrar livro</a>
+        <a id="selecionado" href="/usuarios/create/" target="_self" hreflang="pt-br">Cadastrar usuário</a>
         <a target="_self" hreflang="pt-br">Ajuda</a>
         <a target="_self" hreflang="pt-br">Sair</a>
     </div>
 
-    <!-- Seção Cadastrar Livro -->
-    <div id="cadastrar-livro">
-        <h2>Cadastrar Livro</h2>
-        <h3>Preencha os campos corretamente para cadastrar o livro.</h3>
+    <!-- Seção Cadastrar Usuário -->
+    <div id="cadastrar-usuario">
+        <h2>Cadastrar Usuário</h2>
+        <h3>Preencha os campos corretamente para cadastrar o usuário.</h3>
 
         <form action="" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
-        <p><input type="submit" class="btn btn-success" value="Submit"></p>
-    </form>
+        <p><input type="submit" value="Submit"></p>
     </div>
 </body>
 </html>
