@@ -1,4 +1,5 @@
 from django.db import models
+from usuarios.models import Usuario
 
 # Create your models here.
 
@@ -13,4 +14,4 @@ class Livro(models.Model):
     numero_paginas = models.IntegerField()
     rating = models.FloatField(null=True)
     created_at = models.DateTimeField(auto_now_add=True)
-    created_by = models.IntegerField()
+    created_by = models.ForeignKey(Usuario, models.DO_NOTHING)

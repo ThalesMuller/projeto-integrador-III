@@ -7,7 +7,7 @@
 <body>
 <h3>Livro List</h3>
 {% for Livro in Livros %}
-    <p>{{ forloop.counter }}. {{ Livro.name }} - {{ Livro.get_status_display }}
+    <p>{{ Livro.isbn }}. {{ Livro.titulo }} - {{ Livro.autor }}
         (<a href="{% url 'Livro_update' Livro.id %}">Update</a> |
         <a href="{% url 'Livro_delete' Livro.id %}">Delete</a>)
     </p>

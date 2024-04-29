@@ -7,7 +7,7 @@
 <body>
 <h3>Resenha List</h3>
 {% for Resenha in Resenhas %}
-    <p>{{ forloop.counter }}. {{ Resenha.name }} - {{ Resenha.get_status_display }}
+    <p>Livro: {{ Resenha.cod_livro.titulo }}<br>Nota: {{ Resenha.rating }} <br>{{ Resenha.texto }}<br>
         (<a href="{% url 'Resenha_update' Resenha.id %}">Update</a> |
         <a href="{% url 'Resenha_delete' Resenha.id %}">Delete</a>)
     </p>

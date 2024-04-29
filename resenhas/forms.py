@@ -14,16 +14,15 @@ class ResenhaForm(forms.ModelForm):
     class Meta:
         model = Resenha    
         
-        fields = ['cod_livro', 'texto', 'rating']
+        fields = "__all__"
 
         labels = {
-            'cod_livro' : 'ISBN',
+            'cod_livro' : 'Livro',
             'texto' : 'Resenha',
             'rating' : 'Nota',
         }
 
         widgets = {
-            'cod_livro' : forms.NumberInput(),
             'texto' : forms.Textarea(attrs={'placeholder': 'Escreva uma resenha...'}),
             'rating' : forms.RadioSelect(choices=RATINGS)
         }

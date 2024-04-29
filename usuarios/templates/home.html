@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Margm :: Início</title>
+    <link rel="stylesheet" href="/static/usuarios/styles/inicio.css">
+</head>
+<body>
+    
+    <!-- Menu Lateral -->
+    <div id="menu-lateral">
+        <h1>Margm</h1>
+
+        <a id="selecionado" href="/" target="_self" hreflang="pt-br">Início</a>
+        <a target="_self" hreflang="pt-br">Minhas resenhas</a>
+        <a href="/resenhas/create" target="_self" hreflang="pt-br">Nova resenha</a>
+        <a href="/livros/create" target="_self" hreflang="pt-br">Cadastrar livro</a>
+        <a href="/usuarios/create" target="_self" hreflang="pt-br">Cadastrar usuário</a>
+        <a target="_self" hreflang="pt-br">Ajuda</a>
+        <a href="/contas/login" target="_self" hreflang="pt-br">Sair</a>
+    </div>
+
+
+    <!-- Seção Início -->
+    <div id="inicio">
+        <h2>Início</h2>
+        <h3>Leia, avalie e interaja!</h3>
+
+        <form action="#">
+            <p>Pesquisar</p>
+            <input type="text" name="pesquisa-de-resenha" id="pesquisa-de-resenha" placeholder="Pesquise pelo livro, autor, usuário...">
+            <button name="pesquisar-resenha">Pesquisar</button>
+        </form>
+
+        <p>Resenhas</p>
+        <div id="resenhas">
+            <div id="resenhas">
+              {% for Resenha in Resenhas %}
+                <p>Livro: {{ Resenha.cod_livro.titulo }}<br>Nota: {{ Resenha.rating }} <br>{{ Resenha.texto }}</p>
+              {% endfor %}
+            </div>
+    </div>
+
+</body>
+</html>

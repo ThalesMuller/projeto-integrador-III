@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse, reverse_lazy
 from .models import Usuario
 from .forms import UsuarioForm
+from resenhas.models import Resenha
 
 # Class Based Views
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
