@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Livro List</title>
+</head>
+<body>
+<h3>Livro List</h3>
+{% for Livro in Livros %}
+    <p>{{ forloop.counter }}. {{ Livro.name }} - {{ Livro.get_status_display }}
+        (<a href="{% url 'Livro_update' Livro.id %}">Update</a> |
+        <a href="{% url 'Livro_delete' Livro.id %}">Delete</a>)
+    </p>
+{% endfor %}
+
+<p> <a href="{% url 'Livro_create' %}"> + Add A New Livro</a></p>
+</body>
+</html>
