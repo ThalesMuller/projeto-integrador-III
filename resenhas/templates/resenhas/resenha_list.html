@@ -1,18 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+{% load static %}
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Resenha List</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Margm :: Nova Resenha</title>
+    <link rel="stylesheet" href="/static/resenhas/styles/resenha_form.css">
 </head>
 <body>
-<h3>Resenha List</h3>
-{% for Resenha in Resenhas %}
-    <p>Livro: {{ Resenha.cod_livro.titulo }}<br>Nota: {{ Resenha.rating }} <br>{{ Resenha.texto }}<br>
-        (<a href="{% url 'Resenha_update' Resenha.id %}">Update</a> |
-        <a href="{% url 'Resenha_delete' Resenha.id %}">Delete</a>)
-    </p>
-{% endfor %}
+    <!-- Menu Lateral -->
+    <div id="menu-lateral">
+        <h1>Margm</h1>
 
-<p> <a href="{% url 'Resenha_create' %}"> + Add A New Resenha</a></p>
+        <a target="_self" hreflang="pt-br">Início</a>
+        <a target="_self" hreflang="pt-br">Minhas resenhas</a>
+        <a id="selecionado" href="/resenhas/create/" target="_self" hreflang="pt-br">Nova resenha</a>
+        <a href="/livros/create/" target="_self" hreflang="pt-br">Cadastrar livro</a>
+        <a href="/usuarios/create/" target="_self" hreflang="pt-br">Cadastrar usuário</a>
+        <a target="_self" hreflang="pt-br">Ajuda</a>
+        <a target="_self" hreflang="pt-br">Sair</a>
+    </div>
+
+    <div id="nova-resenha">
+        <h3>Llsta de Resenhas</h3>
+    
+        {% for Resenha in Resenhas %}
+            <p>Livro: {{ Resenha.cod_livro.titulo }}<br>Nota: {{ Resenha.rating }} <br>{{ Resenha.texto }}<br>
+                (<a href="{% url 'Resenha_update' Resenha.id %}">Update</a> |
+                <a href="{% url 'Resenha_delete' Resenha.id %}">Delete</a>) 
+                <br> <hr/>
+            </p>
+        {% endfor %}
+        <p> <a href="{% url 'Resenha_create' %}"> + Adicionar uma Nova Resenha</a></p>
+    </div>
 </body>
 </html>
