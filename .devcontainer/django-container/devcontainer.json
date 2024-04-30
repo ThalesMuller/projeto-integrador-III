@@ -1,12 +1,13 @@
 {
-  "build": {
-    "dockerfile": "Dockerfile"
-  },
+  "name": "Django container",
+  "dockerComposeFile": [
+    "../../docker-compose.yml"
+  ],
+  "service": "django-api",
+  "shutdownAction": "none",
+  "workspaceFolder": "/workspace/",
   "hostRequirements": {
     "cpus": 4
-  },
-  "postAttachCommand": {
-    "server": "python manage.py runserver localhost:8000"
   },
   "customizations": {
     "vscode": {
@@ -19,7 +20,6 @@
           "source.organizeImports": "explicit"
         },
         "python.formatting.provider": "autopep8",
-        
         "[python]": {
           "editor.defaultFormatter": "ms-python.autopep8",
           "editor.formatOnSave": true

@@ -1,0 +1,32 @@
+{
+    "name": "MySQL container",
+    "dockerComposeFile": [
+        "../../docker-compose.yml"
+    ],
+    "service": "mysql-db",
+    "shutdownAction": "none",
+    "workspaceFolder": "/workspace/mysql",
+    "hostRequirements": {
+        "cpus": 4
+    },
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "files.eol": "\n",
+                "git.autofetch": true,
+                "editor.formatOnSave": true,
+                "editor.formatOnPaste": true,
+                "editor.codeActionsOnSave": {
+                    "source.organizeImports": "explicit"
+                }
+            },
+            "extensions": []
+        }
+    },
+    "portsAttributes": {
+        "3306": {
+            "label": "MySQL",
+            "onAutoForward": "notify"
+        }
+    }
+}
