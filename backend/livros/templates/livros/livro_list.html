@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Margm :: Novo Livro</title>
+    <link rel="stylesheet" href="/static/livros/styles/livro_form.css">
+</head>
+<body>
+    <!-- Menu Lateral -->
+    <div id="menu-lateral">
+        <h1>Margm</h1>
+
+        <a target="_self" hreflang="pt-br">Início</a>
+        <a target="_self" hreflang="pt-br">Minhas resenhas</a>
+        <a target="_self" hreflang="pt-br">Nova resenha</a>
+        <a id="selecionado" href="/livros/create/" target="_self" hreflang="pt-br">Cadastrar livro</a>
+        <a href="/usuarios/create/" target="_self" hreflang="pt-br">Cadastrar usuário</a>
+        <a target="_self" hreflang="pt-br">Ajuda</a>
+        <a target="_self" hreflang="pt-br">Sair</a>
+    </div>
+
+    <!-- Seção Cadastrar Livro -->
+    <div id="cadastrar-livro">
+        <h2>Lista de Livros</h2>
+        {% for Livro in Livros %}
+            <p>{{ Livro.isbn }}. {{ Livro.titulo }} - {{ Livro.autor }}
+                (<a href="{% url 'Livro_update' Livro.id %}">Update</a> |
+                <a href="{% url 'Livro_delete' Livro.id %}">Delete</a>)
+            </p>
+            <br><hr/>
+        {% endfor %}
+
+        <p> <a href="{% url 'Livro_create' %}"> + Adicionar um novo livro</a></p>
+    </form>
+    </div>
+</body>
+</html>

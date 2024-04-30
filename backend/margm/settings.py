@@ -26,7 +26,8 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = []
-
+CSRF_ALLOWED_ORIGINS = ["https://localhost"]
+CORS_ORIGINS_WHITELIST = ["https://localhost"]
 # Application definition
 
 INSTALLED_APPS = [
@@ -35,7 +36,12 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',]
+    'django.contrib.staticfiles',
+    'livros',
+    'usuarios',
+    'resenhas',
+    'comentarios'
+]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

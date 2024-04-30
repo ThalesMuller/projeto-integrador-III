@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Usuario List</title>
+</head>
+<body>
+<h3>Usuario List</h3>
+{% for Usuario in Usuarios %}
+    <p>{{ Usuario.id }}. {{ Usuario.login }} - {{ Usuario.email }}
+        (<a href="{% url 'Usuario_update' Usuario.id %}">Update</a> |
+        <a href="{% url 'Usuario_delete' Usuario.id %}">Delete</a>)
+    </p>
+{% endfor %}
+
+<p> <a href="{% url 'Usuario_create' %}"> + Add A New Usuario</a></p>
+</body>
+</html>
