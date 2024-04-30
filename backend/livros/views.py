@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse, reverse_lazy
+from django.db.models import Q
 from .models import Livro
 from .forms import LivroForm
 
@@ -9,6 +10,9 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 class LivroListView(ListView):
     model = Livro
     context_object_name = 'Livros'
+
+    def get_queryset(self):
+        return Livro.objects.filter(Q(titulo=self.request.query) | Q(autor=self.request.query) | Q(usuario=self.request.query))
 
 class LivroDetailView(DetailView):
     model = Livro

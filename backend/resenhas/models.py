@@ -9,4 +9,4 @@ class Resenha(models.Model):
     texto = models.TextField()
     rating = models.IntegerField()
     created_at = models.DateField(auto_now_add=True)
-    created_by = models.ForeignKey(Usuario, models.DO_NOTHING)
+    created_by = models.ForeignKey(Usuario, models.CASCADE)

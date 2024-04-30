@@ -6,6 +6,8 @@ urlpatterns = [
     path('create/', views.LivroCreateView.as_view(), name='Livro_create'),
     # Retrieve Livro list
     path('', views.LivroListView.as_view(), name='Livro_list'),
+    # Search Livro list
+    path('', views.LivroListView.get_queryset, name='Livro_search'),
     # Retrieve single Livro object
     re_path(r'^(?P<pk>\d+)/$', views.LivroDetailView.as_view(), name='Livro_detail'),
     # Update a Livro
