@@ -52,8 +52,6 @@ services:
         condition: service_healthy
     links:
       - mysql-db
-    ports:
-      - "8000:8000"
 
 volumes:
   data:

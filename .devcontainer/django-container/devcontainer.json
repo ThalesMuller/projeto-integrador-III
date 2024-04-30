@@ -9,6 +9,7 @@
   "hostRequirements": {
     "cpus": 4
   },
+  "postAttachCommand": "python backend/manage.py migrate && python backend/manage.py runserver 127.0.0.1:8000",
   "customizations": {
     "vscode": {
       "settings": {
@@ -60,8 +61,5 @@
       "label": "Django",
       "onAutoForward": "notify"
     }
-  },
-  "forwardPorts": [
-    8000
-  ]
+  }
 }
