@@ -28,8 +28,5 @@
             "label": "MySQL",
             "onAutoForward": "notify"
         }
-    },
-    "forwardPorts": [
-        3306
-    ]
+    }
 }

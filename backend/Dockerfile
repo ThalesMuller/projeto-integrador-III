@@ -5,7 +5,7 @@ ENV PYTHONUNBUFFERED 1
 
 RUN apt-get update \
 	&& apt-get install -y --no-install-recommends \
-	&& apt-get install -y git build-essential pkg-config python3-dev default-libmysqlclient-dev libxslt-dev \
+	&& apt-get install -y git default-mysql-client build-essential pkg-config python3-dev default-libmysqlclient-dev libxslt-dev \
 	&& rm -rf /var/lib/apt/lists/*
 
 WORKDIR /workspaces/projeto-integrador-III/
